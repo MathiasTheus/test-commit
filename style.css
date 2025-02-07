@@ -1,0 +1,65 @@
+/* style.css */
+
+/* Estilização do contêiner do carrossel */
+.carrossel-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carrossel {
+    display: flex;
+    transition: transform 0.5s ease; /* Transição suave para as imagens */
+}
+
+.slide {
+    min-width: 100%; /* Cada slide ocupa toda a largura do contêiner */
+    height: 400px; /* Ajuste a altura conforme necessário */
+    overflow: hidden;
+}
+
+.slide img {
+    width: 100%; /* Imagens ocupam toda a largura do slide */
+    height: 100%;
+    object-fit: cover; /* Garantir que as imagens cubram o slide sem deformar */
+}
+
+/* Estilos dos botões de navegação */
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Adiciona a animação para transitar entre as imagens */
+@keyframes carrossel {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(-100%); }
+    66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+}
+
+/* Aplica a animação ao carrossel */
+.carrossel {
+    animation: carrossel 30s infinite; /* 9 segundos de animação (3s por imagem) */
+}
